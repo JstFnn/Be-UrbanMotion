@@ -1,23 +1,39 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "/src/app.js",
+  "type": "commonjs",
   "scripts": {
+    "dev": "npx nodemon ./src/app.js",
+    "start": "node ./src/app.js",
+    "migrate-up": "npx sequelize-cli db:migrate --config ./src/config/config.json --migrations-path ./src/migrations",
+    "migrate-down": "npx sequelize-cli db:migrate:undo:all --config ./src/config/config.json --migrations-path ./src/migrations",
+    "seed-up": "npx sequelize-cli db:seed:all --config ./src/config/config.json --seeders-path ./src/seeders",
+    "seed-down": "npx sequelize-cli db:seed:undo:all --config ./src/config/config.json --seeders-path ./src/seeders",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.3",
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.6",
     "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "express-validator": "^7.2.0",
+    "google-auth-library": "^9.15.0",
     "jsonwebtoken": "^9.0.2",
-    "jwt-simple": "^0.5.6",
-    "mysql2": "^3.11.4",
-    "react-router-dom": "^7.0.1"
+    "midtrans-client": "^1.4.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.5",
+    "sequelize": "^6.37.5",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.2"
   }
 }
